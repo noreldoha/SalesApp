@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="{{ asset('assets/admin/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="{{ asset('assets/admin/fonts/SansPro/SansPro.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap_rtl-v4.2.1/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap_rtl-v4.2.1/custom_rtl.css') }}">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -27,6 +29,7 @@
       <p class="login-box-msg">تسجيل الدخول</p>
 
       <form action="{{ route('admin.login') }}" method="post">
+        @csrf
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="username">
           <div class="input-group-append">
@@ -34,10 +37,11 @@
               <span class="fas fa-envelope"></span>
             </div>
           </div>
-          @error('username')
+          
+        </div>
+        @error('username')
             <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
@@ -45,10 +49,11 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-          @error('password')
+        
+        </div>
+        @error('password')
             <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
         <div class="row">
      
           <!-- /.col -->
