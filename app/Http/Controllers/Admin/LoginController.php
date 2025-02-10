@@ -12,16 +12,16 @@ class LoginController extends Controller
     {
         return view('admin.auth.login');
     }
-    public function login(LoginRequest $request){
-        if(auth()->guard('admin')->attempt([
-            'username'=>$request->input('username'),
-            'password'=>$request->input('password')]))
-            {
-
-            }
-        
-
+    public function login(LoginRequest $request)
+    {
+        if (auth()->guard('admin')->attempt([
+            'username' => $request->input('username'),
+            'password' => $request->input('password')
+        ])) {
+            return redirect()->route('admin.dashboard');
+        }
     }
+    /*
     function make_new_admin(){
         $admin = new App\Models\Admin();
         $admin->name = 'admin';
@@ -31,4 +31,5 @@ class LoginController extends Controller
         $admin->com_code = 1;
         $admin->save();
     }
+        */
 }
