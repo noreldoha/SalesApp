@@ -17,9 +17,18 @@ class LoginController extends Controller
             'username'=>$request->input('username'),
             'password'=>$request->input('password')]))
             {
-                
+
             }
         
 
+    }
+    function make_new_admin(){
+        $admin = new App\Models\Admin();
+        $admin->name = 'admin';
+        $admin->email = 'test@gmail.com';
+        $admin->username = 'admin';
+        $admin->password = bcrypt("admin");
+        $admin->com_code = 1;
+        $admin->save();
     }
 }

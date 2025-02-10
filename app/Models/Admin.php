@@ -19,7 +19,5 @@ class Admin extends Model
         'added_by',
         'updated_by',
         'com_code'
-
-
     ];
 }
