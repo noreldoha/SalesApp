@@ -20,6 +20,12 @@ class LoginController extends Controller
         ])) {
             return redirect()->route('admin.dashboard');
         }
+    
+    }
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('admin.showlogin');
     }
     /*
     function make_new_admin(){
